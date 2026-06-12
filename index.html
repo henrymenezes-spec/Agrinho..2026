@@ -1,54 +1,192 @@
-# Agrinho 2026
-# Agro Forte, Futuro Sustentado
-# Equilíbrio entre Produção e Meio Ambiente
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agrinho 2026 - Agro Forte, Futuro Sustentado</title>
 
-print("=" * 50)
-print("AGRO FORTE, FUTURO SUSTENTADO")
-print("=" * 50)
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: Arial, sans-serif;
+    }
 
-# Dados da propriedade
-area = float(input("Área plantada (hectares): "))
-producao_base = float(input("Produção esperada por hectare (toneladas): "))
+    body{
+        background: #f4fff4;
+        color: #333;
+    }
 
-print("\nPráticas sustentáveis adotadas:")
-print("1 - Plantio direto")
-print("2 - Reflorestamento")
-print("3 - Irrigação eficiente")
-print("4 - Nenhuma")
+    header{
+        background: linear-gradient(135deg,#2e7d32,#66bb6a);
+        color:white;
+        text-align:center;
+        padding:40px 20px;
+    }
 
-opcao = int(input("Escolha uma opção: "))
+    header h1{
+        font-size:2.8em;
+    }
 
-# Índices ambientais
-fator_producao = 1.0
-indice_ambiental = 50
+    header p{
+        margin-top:10px;
+        font-size:1.2em;
+    }
 
-if opcao == 1:
-    fator_producao = 1.10
-    indice_ambiental = 80
-elif opcao == 2:
-    fator_producao = 1.05
-    indice_ambiental = 90
-elif opcao == 3:
-    fator_producao = 1.15
-    indice_ambiental = 85
-else:
-    fator_producao = 0.95
-    indice_ambiental = 40
+    nav{
+        background:#1b5e20;
+        padding:15px;
+        text-align:center;
+    }
 
-# Cálculos
-producao_final = area * producao_base * fator_producao
+    nav a{
+        color:white;
+        text-decoration:none;
+        margin:0 15px;
+        font-weight:bold;
+    }
 
-print("\nRESULTADOS")
-print("-" * 50)
-print(f"Produção total: {producao_final:.2f} toneladas")
-print(f"Índice ambiental: {indice_ambiental}/100")
+    section{
+        padding:40px 10%;
+    }
 
-if indice_ambiental >= 80:
-    print("Excelente equilíbrio entre produção e preservação ambiental!")
-elif indice_ambiental >= 60:
-    print("Bom desempenho sustentável.")
-else:
-    print("É necessário investir mais em práticas sustentáveis.")
+    .card{
+        background:white;
+        padding:25px;
+        margin:20px 0;
+        border-radius:15px;
+        box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    }
 
-print("\nMensagem:")
-print("Produzir alimentos e cuidar da natureza é o caminho para um futuro sustentado!")
+    h2{
+        color:#2e7d32;
+        margin-bottom:15px;
+    }
+
+    ul{
+        margin-left:20px;
+    }
+
+    .simulador{
+        text-align:center;
+    }
+
+    input{
+        padding:10px;
+        width:200px;
+        margin:10px;
+        border:1px solid #ccc;
+        border-radius:8px;
+    }
+
+    button{
+        background:#2e7d32;
+        color:white;
+        border:none;
+        padding:12px 25px;
+        border-radius:8px;
+        cursor:pointer;
+        font-size:16px;
+    }
+
+    button:hover{
+        background:#1b5e20;
+    }
+
+    #resultado{
+        margin-top:20px;
+        font-size:1.2em;
+        font-weight:bold;
+        color:#1b5e20;
+    }
+
+    footer{
+        background:#1b5e20;
+        color:white;
+        text-align:center;
+        padding:20px;
+        margin-top:30px;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>🌱 Agro Forte, Futuro Sustentado</h1>
+    <p>Equilíbrio entre Produção e Meio Ambiente</p>
+</header>
+
+<nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#praticas">Práticas Sustentáveis</a>
+    <a href="#simulador">Simulador</a>
+</nav>
+
+<section id="sobre">
+    <div class="card">
+        <h2>🌾 O Agro e a Sustentabilidade</h2>
+        <p>
+            O campo produz alimentos que chegam à mesa de milhões de pessoas.
+            Para garantir um futuro melhor, é importante unir produtividade,
+            preservação ambiental e uso consciente dos recursos naturais.
+        </p>
+    </div>
+</section>
+
+<section id="praticas">
+    <div class="card">
+        <h2>♻️ Práticas Sustentáveis</h2>
+        <ul>
+            <li>Plantio direto para proteger o solo.</li>
+            <li>Preservação das nascentes e matas ciliares.</li>
+            <li>Uso eficiente da água na irrigação.</li>
+            <li>Rotação de culturas.</li>
+            <li>Energia renovável no campo.</li>
+            <li>Redução do desperdício de recursos.</li>
+        </ul>
+    </div>
+</section>
+
+<section id="simulador">
+    <div class="card simulador">
+        <h2>📊 Simulador de Produção Sustentável</h2>
+
+        <p>Digite a área plantada e a produção por hectare:</p>
+
+        <input type="number" id="area" placeholder="Área (ha)">
+        <input type="number" id="producao" placeholder="Toneladas/ha">
+        <br>
+
+        <button onclick="calcular()">Calcular</button>
+
+        <div id="resultado"></div>
+    </div>
+</section>
+
+<footer>
+    <p>Projeto Agrinho 2026 | Agro Forte, Futuro Sustentado 🌱</p>
+</footer>
+
+<script>
+function calcular() {
+    let area = Number(document.getElementById("area").value);
+    let producao = Number(document.getElementById("producao").value);
+
+    if(area <= 0 || producao <= 0){
+        document.getElementById("resultado").innerHTML =
+        "Preencha os valores corretamente!";
+        return;
+    }
+
+    let producaoTotal = area * producao;
+    let sustentabilidade = producaoTotal * 0.15;
+
+    document.getElementById("resultado").innerHTML =
+    `Produção Total: ${producaoTotal.toFixed(2)} toneladas<br>
+    Benefício Sustentável Estimado: ${sustentabilidade.toFixed(2)} pontos 🌿`;
+}
+</script>
+
+</body>
+</html>
