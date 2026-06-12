@@ -1,1 +1,54 @@
+# Agrinho 2026
+# Agro Forte, Futuro Sustentado
+# Equilíbrio entre Produção e Meio Ambiente
 
+print("=" * 50)
+print("AGRO FORTE, FUTURO SUSTENTADO")
+print("=" * 50)
+
+# Dados da propriedade
+area = float(input("Área plantada (hectares): "))
+producao_base = float(input("Produção esperada por hectare (toneladas): "))
+
+print("\nPráticas sustentáveis adotadas:")
+print("1 - Plantio direto")
+print("2 - Reflorestamento")
+print("3 - Irrigação eficiente")
+print("4 - Nenhuma")
+
+opcao = int(input("Escolha uma opção: "))
+
+# Índices ambientais
+fator_producao = 1.0
+indice_ambiental = 50
+
+if opcao == 1:
+    fator_producao = 1.10
+    indice_ambiental = 80
+elif opcao == 2:
+    fator_producao = 1.05
+    indice_ambiental = 90
+elif opcao == 3:
+    fator_producao = 1.15
+    indice_ambiental = 85
+else:
+    fator_producao = 0.95
+    indice_ambiental = 40
+
+# Cálculos
+producao_final = area * producao_base * fator_producao
+
+print("\nRESULTADOS")
+print("-" * 50)
+print(f"Produção total: {producao_final:.2f} toneladas")
+print(f"Índice ambiental: {indice_ambiental}/100")
+
+if indice_ambiental >= 80:
+    print("Excelente equilíbrio entre produção e preservação ambiental!")
+elif indice_ambiental >= 60:
+    print("Bom desempenho sustentável.")
+else:
+    print("É necessário investir mais em práticas sustentáveis.")
+
+print("\nMensagem:")
+print("Produzir alimentos e cuidar da natureza é o caminho para um futuro sustentado!")
